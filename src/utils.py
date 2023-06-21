@@ -10,12 +10,10 @@ def load_data(file_path):
 def number_hide(card_number):
     card_number_space = card_number.split(' ')
     number_part = card_number_space[-1]
-    if len(card_number_space) > 2:
+    if "Счет" not in card_number_space:
         return number_part[:4] + ' ' + number_part[4:6] + '** **** ' + number_part[-4:]
     else:
-        if card_number_space[0] == 'Счет':
-            return '**' + number_part[-4:]
-        return number_part[:4] + ' ' + number_part[4:6] + '** **** ' + number_part[-4:]
+        return '**' + number_part[-4:]
 
 
 def filter_sort(data):
@@ -24,8 +22,7 @@ def filter_sort(data):
     return items[:5]
 
 
-if __name__ == '__main__':
-    dict_ = {
-        'a': 1
-    }
-    print(dict_.get('h'))
+def convert_date(date):
+    new_date = date[:10]
+    new_date = new_date.split('-')
+    return f"{new_date[2]}.{new_date[1]}.{new_date[0]}"
