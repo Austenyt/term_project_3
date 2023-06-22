@@ -4,6 +4,7 @@ file = "operations.json"
 
 
 def main():
+    '''Запускает все функции'''
     data = load_data(file)
     sorted_data = filter_sort(data)
     for item in sorted_data:
